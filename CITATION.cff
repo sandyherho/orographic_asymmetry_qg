@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "Supplementary Materials: Orographic Resonance under Surface Easterlies in a Sheared Two-Layer Atmosphere"
+type: software
+license: MIT
+version: 0.0.1
+date-released: 2026-11-26
+repository-code: "https://github.com/sandyherho/orographic_asymmetry_qg"
+keywords:
+  - orographic Rossby waves
+  - stationary waves
+  - form stress
+  - quasi-geostrophic two-layer model
+  - multiple flow equilibria
+  - Charney-DeVore
+  - surface easterlies
+  - vertical shear
+authors:
+  - family-names: Fajary
+    given-names: Faiz R.
+    affiliation: "Atmospheric Science Research Group, Bandung Institute of Technology"
+  - family-names: Herho
+    given-names: Sandy H. S.
+    affiliation: "Applied Geology Research Group, Bandung Institute of Technology"
+    email: sandyherho@itb.ac.id

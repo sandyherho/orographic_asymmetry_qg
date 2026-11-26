@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "orographic_asymmetry_qg"
+version = "0.0.1"
+description = "Supplementary Materials: Orographic Resonance under Surface Easterlies in a Sheared Two-Layer Atmosphere"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [
+    { name = "Faiz R. Fajary" },
+    { name = "Sandy H. S. Herho", email = "sandyherho@itb.ac.id" },
+]
+dependencies = ["numpy>=1.24", "scipy>=1.10", "matplotlib>=3.7"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7", "pycodestyle>=2.10"]
+
+[tool.setuptools]
+packages = ["orographic_asymmetry_qg"]

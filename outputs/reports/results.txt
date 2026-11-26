@@ -1,0 +1,96 @@
+Results of the two-layer orographic model
+=========================================
+All values are outputs of an idealized model with no observational data; see the README for assumptions and limitations. Winds are in units of 10 m/s and times of 5.21 days unless stated.
+
+Scales and reference parameters
+-------------------------------
+length 4505 km, velocity 10 m/s, time 5.21 days; beta = 32.85
+deformation wavenumber 5.50 (L_d = 819 km); critical shear 2.172 (21.7 m/s)
+mountain: eta0 = 20 (2152 m in the 5 km lower layer), e-folding half-width 1126 km
+bottom drag 1.30 (4.0 d), cooling 0.26 (20.1 d), relaxation of the mean wind 0.50 (10.4 d), hyperviscosity 3.91e-11
+
+Verification (Fig. 2)
+---------------------
+ETDRK4 errors 2.09e-04, 1.31e-05, 8.19e-07, 5.09e-08; observed orders 4.00, 4.00, 4.01
+growth rates: max relative difference 1.9e-03 over 3 unstable wavenumbers
+nonlinear / linear form stress (west): 0.999, 0.995, 0.981, 0.882, 0.617, 0.270
+nonlinear / linear form stress (east): 1.000, 1.000, 0.998, 0.988, 0.956, 0.758
+energy budget: max |E(t) - E(0) - integral| 6.8e-06 against max |E(t) - E(0)| 1.4e+00
+Newton residuals: 7.3e-03, 9.4e-05, 1.7e-07, 2.4e-13, 1.2e-16
+grid 48x24: form stress 0.010681, U2 -0.48932, growth 0.0749
+grid 64x32: form stress 0.010460, U2 -0.48954, growth 0.0652
+grid 96x48: form stress 0.010367, U2 -0.48963, growth 0.0721
+inviscid invariant drift over 50 units: energy 1.0e-08, enstrophy 6.1e-10
+
+Infinite ridge and the mountain cases (Fig. 3)
+----------------------------------------------
+ridge west: max |displacement| 459 km inviscid, 223 km with drag
+ridge east: max |displacement| 110 km inviscid, 110 km with drag
+mountain west    : form stress -0.03328, rms psi2 0.0233, residual 3.4e-11, largest growth rate -0.0376
+mountain east    : form stress +0.00928, rms psi2 0.0130, residual 8.3e-13, largest growth rate -0.0373
+mountain sheared : form stress +0.01400, rms psi2 0.0183, residual 8.9e-15, largest growth rate +0.0183
+
+Stationary resonance and linear form stress (Figs. 4, 5)
+--------------------------------------------------------
+closed-form criterion against root count: 0 mismatches on 127129 subcritical points
+shear  0.0 m/s: no stationary wave for surface easterlies
+shear 10.0 m/s: stationary waves for surface easterlies from U2 = -0.99 to 0 (-10 to 0 m/s); at -5 m/s K_s = 9.09 (wavelength 3115 km)
+shear 15.0 m/s: stationary waves for surface easterlies from U2 = -1.50 to 0 (-15 to 0 m/s); at -5 m/s K_s = 6.58 (wavelength 4301 km)
+shear 20.0 m/s: stationary waves for surface easterlies from U2 = -2.00 to 0 (-20 to 0 m/s); at -5 m/s K_s = 5.60 (wavelength 5054 km)
+mean |D| easterly / westerly for |U2| <= 5 m/s: 0.137 (no shear) to 0.768 (shear 21 m/s)
+mean |D| easterly / westerly for |U2| <= 10 m/s: 0.082 (no shear) to 0.600 (shear 21 m/s)
+mean |D| easterly / westerly for |U2| <= 20 m/s: 0.073 (no shear) to 0.416 (shear 21 m/s)
+fold threshold, relaxation 52 d: easterly 26770 m, westerly 1780 m without shear; easterly below westerly from shear 9.5 m/s; minimum easterly threshold 303 m at 16.5 m/s
+fold threshold, relaxation 10 d: easterly 59860 m, westerly 3980 m without shear; easterly below westerly from shear 9.5 m/s; minimum easterly threshold 677 m at 16.5 m/s
+  shear 0.0 m/s: max dD/dU east 0.001, west 0.293
+  shear 15.0 m/s: max dD/dU east 7.300, west 0.276
+  shear 21.0 m/s: max dD/dU east 3.809, west 0.199
+
+Nonlinear steady branches (Fig. 6)
+----------------------------------
+shear  0.0 m/s: 166 points in 1 pieces, U2* from -1.50 to 1.81; stable everywhere (max growth -0.0355)
+  no folds
+  form stress: max |D| 0.1384 (westerly forcing), 0.0103 (easterly forcing)
+shear 10.0 m/s: 299 points in 1 pieces, U2* from -1.50 to 1.80; unstable for U2* in [-0.706, -0.268] (41% of points), max growth 0.216 per 5.2 d at U2* = -0.499 with period 41.0 d
+  no folds
+  form stress: max |D| 0.1154 (westerly forcing), 0.0149 (easterly forcing)
+shear 15.0 m/s: 491 points in 4 pieces, U2* from -1.50 to 1.80; unstable for U2* in [-1.190, 0.376] (79% of points), max growth 1.077 per 5.2 d at U2* = -0.262 with period 38.1 d
+  21 folds, all at U2* between -0.827 and -0.182; neighbouring folds 0.0000 to 0.0279 apart
+  form stress: max |D| 0.1185 (westerly forcing), 0.0177 (easterly forcing)
+shear 20.0 m/s: 362 points in 6 pieces, U2* from -1.50 to 1.80; unstable for U2* in [-1.500, 1.800] (100% of points), max growth 0.704 per 5.2 d at U2* = -1.198 with period 22.1 d
+  17 folds, all at U2* between -1.435 and -0.211; neighbouring folds 0.0000 to 0.0388 apart
+  form stress: max |D| 0.0935 (westerly forcing), 0.0216 (easterly forcing)
+
+Time-dependent flow (Figs. 7, 8)
+--------------------------------
+shear  0.0 m/s: unsteady (std of D above 1% of its mean) at U2* = none
+  ramp up: largest change of U2 - U2* between samples 0.0035
+  ramp down: largest change of U2 - U2* between samples 0.0092
+shear 15.0 m/s: unsteady (std of D above 1% of its mean) at U2* = -1, -0.9, -0.8, -0.7, -0.6, -0.5, -0.4, -0.3, -0.2, -0.1, -0, 0.1, 0.2, 0.3
+  U2* -1.0: mean D +0.0155 (std 0.0009), U2 -0.985 (std 0.000), energy 0.0269, period 31.9 d, entropy 0.681, complexity 0.329
+  U2* -0.9: mean D +0.0151 (std 0.0014), U2 -0.885 (std 0.001), energy 0.0373, period 39.6 d, entropy 0.543, complexity 0.338
+  U2* -0.8: mean D +0.0146 (std 0.0011), U2 -0.785 (std 0.001), energy 0.0527, period 52.1 d, entropy 0.637, complexity 0.339
+  U2* -0.7: mean D +0.0157 (std 0.0005), U2 -0.684 (std 0.000), energy 0.0314, period 76.5 d, entropy 0.684, complexity 0.349
+  U2* -0.6: mean D +0.0164 (std 0.0013), U2 -0.584 (std 0.001), energy 0.0524, period 1147.1 d, entropy 0.530, complexity 0.360
+  U2* -0.5: mean D +0.0115 (std 0.0011), U2 -0.489 (std 0.001), energy 0.0666, period 54.6 d, entropy 0.438, complexity 0.328
+  U2* -0.4: mean D +0.0138 (std 0.0009), U2 -0.386 (std 0.001), energy 0.0188, period 81.9 d, entropy 0.319, complexity 0.263
+  U2* -0.3: mean D +0.0100 (std 0.0009), U2 -0.290 (std 0.001), energy 0.0309, period 60.4 d, entropy 0.525, complexity 0.369
+  U2* -0.2: mean D +0.0065 (std 0.0005), U2 -0.194 (std 0.000), energy 0.0270, period 18.5 d, entropy 0.603, complexity 0.404
+  U2* -0.1: mean D +0.0044 (std 0.0001), U2 -0.096 (std 0.000), energy 0.0025, period 15.7 d, entropy 0.685, complexity 0.374
+  U2* -0.0: mean D +0.0000 (std 0.0001), U2 -0.000 (std 0.000), energy 0.0000, period 12.5 d, entropy 0.694, complexity 0.355
+  U2* +0.1: mean D -0.0054 (std 0.0003), U2 +0.095 (std 0.000), energy 0.0016, period 10.2 d, entropy 0.648, complexity 0.386
+  U2* +0.2: mean D -0.0116 (std 0.0005), U2 +0.188 (std 0.000), energy 0.0053, period 10.0 d, entropy 0.788, complexity 0.291
+  U2* +0.3: mean D -0.0181 (std 0.0004), U2 +0.282 (std 0.000), energy 0.0106, period 8.6 d, entropy 0.786, complexity 0.295
+  ramp up: largest change of U2 - U2* between samples 0.0070
+  ramp down: largest change of U2 - U2* between samples 0.0101
+
+Lagrangian stirring (Fig. 8)
+----------------------------
+sheared, U2* = -0.9: mean FTLE 0.062, 95th percentile 0.181 per 5.2 d
+unsheared, U2* = -0.9: mean FTLE 0.032, 95th percentile 0.136 per 5.2 d
+
+Supercritical eddying runs (Fig. 9)
+-----------------------------------
+east: time-mean form stress +0.0028 +- 0.0128 (2 s.e.), linear +0.0794; rms eddy speed upper 3.27, lower 1.33
+west: time-mean form stress -0.0276 +- 0.0186 (2 s.e.), linear -0.0613; rms eddy speed upper 3.08, lower 1.26
+ratio |D_east / D_west| = 0.102 (linear 1.296)
